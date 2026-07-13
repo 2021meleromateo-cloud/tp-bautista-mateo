@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Quiz de Fútbol</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="contenedor">
+
+<h1>⚽ Quiz de Fútbol ⚽</h1>
+
+<form method="POST">
+
+
+{% for pregunta in preguntas %}
+
+<div class="pregunta">
+
+<h2>
+{{ loop.index }}. {{ pregunta.pregunta }}
+</h2>
+
+
+{% for opcion in pregunta.opciones %}
+
+<label>
+
+<input 
+type="radio"
+name="pregunta{{ loop.parent.index0 }}"
+value="{{ opcion }}"
+required>
+
+{{ opcion }}
+
+</label>
+
+<br>
+
+{% endfor %}
+
+
+</div>
+
+{% endfor %}
+
+
+<button type="submit">
+Enviar respuestas
+</button>
+
+
+</form>
+
+
+</div>
+
+
+</body>
+
+</html>
