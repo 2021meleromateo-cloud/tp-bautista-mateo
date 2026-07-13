@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Resultado</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="contenedor">
+
+<h1>🏆 Resultado Final 🏆</h1>
+
+
+<h2>
+Tu puntaje fue:
+{{ puntaje }} / {{ total }}
+</h2>
+
+
+{% if puntaje == total %}
+
+<h3>🌟 ¡Excelente! Todas correctas</h3>
+
+
+{% elif puntaje >= 3 %}
+
+<h3>👏 ¡Muy bien!</h3>
+
+
+{% else %}
+
+<h3>⚽ Seguí practicando</h3>
+
+
+{% endif %}
+
+
+
+<a href="/">
+
+<button>
+Jugar otra vez
+</button>
+
+</a>
+
+
+</div>
+
+
+</body>
+
+</html>
